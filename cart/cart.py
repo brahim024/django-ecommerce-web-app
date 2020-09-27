@@ -9,3 +9,9 @@ class Cart(object):
         if not cart:
             cart=self.session[setting.CART_SESSION_ID]={}
         self.cart=cart
+    def add(self,product,quantity=1,override_quantity=False):
+        #add product to the cart and update items quantity
+        product_id=str(product.id)
+        if product_id not in (product.id):
+            self.cart[product_id]={'quantity':0,
+                                    'price':str(product.price)}
