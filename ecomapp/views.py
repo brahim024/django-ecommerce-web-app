@@ -4,15 +4,15 @@ from .models import Category, Product
 def product_list(request,category_slug=None):
     category=None
     categories=Category.objects.all()
-    product=Pruduct.objetcs.filter(available=True)
+    product=Product.objects.filter(available=True)
     if category_slug:
         category=get_object_or_404(Category,slug=category_slug)
-        product=Product.objetcs.filter(category=category)
-    return render(request,'stor/product/list.html',
+        product=product.filter(category=category)
+    return render(request,'list.html',
                             {'category':category,
                             'categories':categories,
-                            'product':product})
+                            'products':product})
 
 def product_detail(request,id,slug):
     product=get_object_or_404(Product,id=id,slug=slug,available=True)
-    return render(request,'stor/product/details.html',{'product':product})
+    return render(request,'details.html',{'product':product})
