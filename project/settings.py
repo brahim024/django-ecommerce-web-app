@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'cart',
     'ecomapp',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -103,6 +104,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
+CART_SESSION_ID='cart'
 
 LANGUAGE_CODE = 'en-us'
 
