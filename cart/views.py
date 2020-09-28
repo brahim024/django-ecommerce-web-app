@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect ,get_object_or_404
 from django.views.decorators.http import require_POST
-from ecomapp.models import Product
+from ecomapp.models import Product ,Category
 from.cart import Cart  #this is Cart class in cart.py
 from .forms import CartAddProductForm
 # Create your views here.
@@ -16,7 +16,7 @@ def cart_adding(request,product_id):
                 override_quantity=cd['override'])
     return redirect('cart:cart_detail')
 @require_POST
-def cart_remove(request):
+def cart_remove(request,product_id):
     cart=Cart(request)
     product=get_object_or_404(Product,id=product_id)
     cart.remove(product)
