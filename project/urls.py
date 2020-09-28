@@ -20,7 +20,8 @@ from django.contrib.staticfiles.urls import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('stor/',include('ecomapp.urls',namespace='ecomapp'))
+    path('cart/',include('cart.urls',namespace='cart')),
+    path('stor/',include('ecomapp.urls',namespace='ecomapp')),
 ]
 urlpatterns += staticfiles_urlpatterns()
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
