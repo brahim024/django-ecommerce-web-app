@@ -26,3 +26,18 @@ class Cart(object):
         if product_id in self.cart:
             del self.cart[product_id]
             self.save()
+    def __iter__(self):
+        product_ids=self.cart.keys()
+        products=Product.objects.filter(id__in=product_ids)
+        cart=self.cart.copy()
+        for product in products:
+            cart[str(product.id)]['product']=product
+        for item in cart.value():
+            item['price']=Decimal(item['price'])
+            item['total_prie']=item['price'] * item['quantity']
+            yield item
+    def __len__(self):
+        return sum(Decimal(tem['price'])) * item['quantity'] for item in self.cart.value())
+    def clear(self):
+        deg self.session[setting.CART_SESSION_ID]
+        self.save()
