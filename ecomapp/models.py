@@ -10,8 +10,8 @@ class Category(models.Model):
         verbose_name_plural='categories'
     def __str__(self):
         return self.name
-    def get_absolute_url(self):
-        return reverse('ecomapp:product_list_by_category',args=[self.slug])
+def get_absolute_url(self):
+    return reverse('ecomapp:product_list_by_category',args=[self.slug])
 class Product(models.Model):
     category=models.ForeignKey(Category,related_name='products',on_delete=models.CASCADE)
     name=models.CharField(max_length=40,db_index=True)
