@@ -57,6 +57,6 @@ method="post">
  <p class="text-right">
  <a href="{% url "ecomapp:product_list" %}" class="button
  light">Continue shopping</a>
- <a href="#" class="button">Checkout</a>
+ <a href="{% url "orders:order_add" %}" class="button">Checkout</a>
  </p>
 {% endblock %}

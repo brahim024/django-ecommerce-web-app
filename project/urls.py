@@ -20,6 +20,7 @@ from django.contrib.staticfiles.urls import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('order/' ,include('order.urls',namespace='orders')),
     path('cart/',include('cart.urls',namespace='cart')),
     path('stor/',include('ecomapp.urls',namespace='ecomapp')),
 ]
