@@ -15,7 +15,7 @@ from celery import Celery
 # set the default django setting 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE','ecomapp.settings')
 app=Celery('ecomapp')
-app.config_form_object('django.conf:settings',namepace='CELERY')
+app.config_from_object('django.conf:settings',namespace='CELERY')
 app.autodiscover_tasks()
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
