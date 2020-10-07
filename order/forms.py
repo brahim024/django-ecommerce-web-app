@@ -5,3 +5,4 @@ class OrderCreateForm(forms.ModelForm):
     class Meta:
         model=Order
         fields='__all__'
+        
