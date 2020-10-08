@@ -25,6 +25,19 @@ BRAINTREE_CONF=braintree.Configuration(
      BRAINTREE_PRIVATE_KEY
 
     )
+#--------------- SENTRY ----------------------------------------------------------------
+import sentry_sdk                                                               #    |
+from sentry_sdk.integrations.django import DjangoIntegration                    #    |
+sentry_sdk.init(                                                                 #   |
+    dsn="https://903dd1b00bde4a37b7725aaaa1263c66@o458913.ingest.sentry.io/5457293",#|
+    integrations=[DjangoIntegration()],                                         #    |
+    traces_sample_rate=1.0,
+
+    # If you wish to associate users to errors (assuming you are using
+    # django.contrib.auth) you may enable sending PII data.
+    send_default_pii=True
+)   #                                                                                |
+#---------------- END SENTRY---------------------------------------------------------|
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -44,6 +57,7 @@ INSTALLED_APPS = [
     'cart',
     'ecomapp',
     'order',
+    'django_celery_results',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
