@@ -20,6 +20,17 @@ app.autodiscover_tasks()
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+BRAINTREE_MERCHANT_ID = 'xxxx' # Merchant ID
+BRAINTREE_PUBLIC_KEY = 'xxxx' # Public Key
+BRAINTREE_PRIVATE_KEY = 'xxxx' # Private key
+import braintree
+BRAINTREE_CONF=braintree.Configuration(
+    braintree.Environment.Sandbox,
+    BRAINTREE_MERCHANT_ID,
+     BRAINTREE_PUBLIC_KEY,
+     BRAINTREE_PRIVATE_KEY
+
+    )
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -45,6 +56,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'payments.apps.PaymentConfig',
 ]
 
 MIDDLEWARE = [

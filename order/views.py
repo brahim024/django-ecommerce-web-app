@@ -1,3 +1,4 @@
+from django.urls import reverse
 from django.shortcuts import render
 from .models import OrderItem
 from.forms import OrderCreateForm
@@ -15,8 +16,12 @@ def order_add(request):
 										price=item['price'],
 										quantity=item['quantity']
 										)
+
 			cart.clear()
-			return render(request,'created.html',{'order':order})
+			# launch asynchro=nouse task
+			order_add.delay(order.id)
+			request.session['order_id']=order.id
+			return redirect(reverse('payment:process'))
 	else:
 		form=OrderCreateForm()
 	return render(request,'create.html',{'cart':cart,'form':form})
