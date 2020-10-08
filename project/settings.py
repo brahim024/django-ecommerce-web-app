@@ -11,12 +11,6 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-from celery import Celery
-# set the default django setting 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE','ecomapp.settings')
-app=Celery('ecomapp')
-app.config_from_object('django.conf:settings',namespace='CELERY')
-app.autodiscover_tasks()
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -56,7 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'payments.apps.PaymentConfig',
+    'payments.apps.PaymentsConfig',
 ]
 
 MIDDLEWARE = [
@@ -146,3 +140,5 @@ STATICFILES_DIRS = [
 ]
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
