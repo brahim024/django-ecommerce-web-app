@@ -33,4 +33,8 @@ def payment_process(request):
 		return render(request,'process.html',{
 						'order':order,
 						'client_token':client_token})
+def payment_done(request):
+	return render(request,'done.html')
+def payment_canceled(request):
+	return render(request,'canceled.html')
 		
