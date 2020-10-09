@@ -6,7 +6,7 @@ from order.models import Order
 gateway=braintree.BraintreeGateway(settings.BRAINTREE_CONF)
 def payment_process(request):
 	order_id=request.session.get('orrder_id')
-	order=get_object_or_404(order,id=order_id)
+	order=get_object_or_404(Order,id=order_id)
 	total_cost=order.get_total_cost()
 	if request.method=='POST':
 		nonce=request.POST.get('payment_method_nonce',None)

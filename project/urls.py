@@ -24,7 +24,7 @@ def trigger_error(request):
 urlpatterns = [
     path('sentry-debug/', trigger_error),
     path('admin/', admin.site.urls),
-    path('payments',include('payments.urls',namespace='payments')),
+    path('payments/',include('payments.urls',namespace='payments')),
     path('order/' ,include('order.urls',namespace='orders')),
     path('cart/',include('cart.urls',namespace='cart')),
     path('stor/',include('ecomapp.urls',namespace='ecomapp')),
