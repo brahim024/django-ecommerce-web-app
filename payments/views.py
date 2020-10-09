@@ -21,7 +21,7 @@ def payment_process(request):
 		if result.is_success:
 			# mark the order as paid
 			order.paid=True
-			#
+			# store the unique transaction
 			order.braintree_id=result.transaction.id
 			order.save()
 			return redirect('payment:done')
@@ -30,5 +30,7 @@ def payment_process(request):
 	else:
 		#generate token
 		client_token=gateway.client_token.generate()
-		return render(request,'process.html')
+		return render(request,'process.html',{
+						'order':order,
+						'client_token':client_token})
 		
