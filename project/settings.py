@@ -13,10 +13,10 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-BRAINTREE_MERCHANT_ID = 'xxxx' # Merchant ID
-BRAINTREE_PUBLIC_KEY = 'xxxx' # Public Key
-BRAINTREE_PRIVATE_KEY = 'xxxx' # Private key
+#export DJANGO_SETTINGS_MODULE=project.settings
+BRAINTREE_MERCHANT_ID = '3zy8m87hxnghspyy' # Merchant ID
+BRAINTREE_PUBLIC_KEY = 'jccxr9mx36nrvvsw' # Public Key
+BRAINTREE_PRIVATE_KEY = '904bc0b440bd7abc2f66188ba97edaa2' # Private key
 import braintree
 BRAINTREE_CONF=braintree.Configuration(
     braintree.Environment.Sandbox,
@@ -25,6 +25,7 @@ BRAINTREE_CONF=braintree.Configuration(
      BRAINTREE_PRIVATE_KEY
 
     )
+#
 #--------------- SENTRY ----------------------------------------------------------------
 import sentry_sdk                                                               #    |
 from sentry_sdk.integrations.django import DjangoIntegration                    #    |
