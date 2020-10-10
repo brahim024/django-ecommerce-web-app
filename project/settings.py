@@ -13,31 +13,10 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-#export DJANGO_SETTINGS_MODULE=project.settings
-BRAINTREE_MERCHANT_ID = '3zy8m87hxnghspyy' # Merchant ID
-BRAINTREE_PUBLIC_KEY = 'jccxr9mx36nrvvsw' # Public Key
-BRAINTREE_PRIVATE_KEY = '904bc0b440bd7abc2f66188ba97edaa2' # Private key
-import braintree
-BRAINTREE_CONF=braintree.Configuration(
-    braintree.Environment.Sandbox,
-    BRAINTREE_MERCHANT_ID,
-     BRAINTREE_PUBLIC_KEY,
-     BRAINTREE_PRIVATE_KEY
 
-    )
 #
 #--------------- SENTRY ----------------------------------------------------------------
-import sentry_sdk                                                               #    |
-from sentry_sdk.integrations.django import DjangoIntegration                    #    |
-sentry_sdk.init(                                                                 #   |
-    dsn="https://903dd1b00bde4a37b7725aaaa1263c66@o458913.ingest.sentry.io/5457293",#|
-    integrations=[DjangoIntegration()],                                         #    |
-    traces_sample_rate=1.0,
-
-    # If you wish to associate users to errors (assuming you are using
-    # django.contrib.auth) you may enable sending PII data.
-    send_default_pii=True
-)   #                                                                                |
+                                                                             
 #---------------- END SENTRY---------------------------------------------------------|
 
 # Quick-start development settings - unsuitable for production
@@ -66,7 +45,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'payments.apps.PaymentsConfig',
 ]
 
 MIDDLEWARE = [
