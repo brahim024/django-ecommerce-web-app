@@ -8,7 +8,7 @@ def order_created(order_id):
 	subject=f'Order mr. {order.id}'
 	message=f'Dear {order.first_name},\n\n'\
 			f'You have succesfely placed an order.'\
-			f'Your orde ID is {oredr.id}.'
+			f'Your orde ID is {order.id}.'
 	mail_sent=send_mail(subject,message,'admin000@gmail.com',[order.email])
 	return mail_sent
 	
