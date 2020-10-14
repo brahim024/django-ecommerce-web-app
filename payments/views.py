@@ -37,5 +37,4 @@ def payment_done(request):
 	return render(request,'done.html')
 def payment_canceled(request):
 	return render(request,'canceled.html')
-def 
 		
