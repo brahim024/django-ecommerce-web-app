@@ -18,8 +18,6 @@ from django.urls import path ,include
 from . import settings
 from django.contrib.staticfiles.urls import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-def trigger_error(request):
-    division_by_zero = 1 / 0
 
 urlpatterns = [
     path('admin/', admin.site.urls),

@@ -2,7 +2,7 @@ from django.urls import reverse
 from .tasks import order_created 
 from django.shortcuts import render ,redirect
 from .models import OrderItem ,Order
-from.forms import OrderCreateForm
+from .forms import OrderCreateForm
 from cart.cart import Cart
 # Create your views here.
 def order_add(request):
@@ -22,7 +22,7 @@ def order_add(request):
 			# launch asynchro=nouse task
 			order_created.delay(order.id)  #
 			#request.session['order_id']=order.id #
-			return render(request,'create.html')#
+			return render(request,'created.html')#
 	else:
 		form=OrderCreateForm()
 	return render(request,'create.html',{'cart':cart,'form':form})
