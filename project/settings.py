@@ -14,7 +14,7 @@ import os
 
 #Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+os.environ['DJANGO_SETTINGS_MODULE'] = 'project.settings'
 #
 #--------------- SENTRY ----------------------------------------------------------------
                                                                              
@@ -30,7 +30,6 @@ SECRET_KEY = '2-*9pi_2iy)sxd_w!8j==!i@py20zv&xtjhx^w0#$r*6!gqiy8'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -86,7 +85,7 @@ WSGI_APPLICATION = 'project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR , 'db.sqlite3'),
     }
 }
 

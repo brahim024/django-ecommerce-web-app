@@ -20,7 +20,7 @@ def order_add(request):
 
 			cart.clear()
 			# launch asynchro=nouse task
-			#order_created.delay(order.id)  #
+			order_created.delay(order.id)  #
 			#request.session['order_id']=order.id #
 			return render(request,'create.html')#
 	else:
