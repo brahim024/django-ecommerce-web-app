@@ -21,7 +21,7 @@ def order_add(request):
 			cart.clear()
 			# launch asynchro=nouse task
 			order_created.delay(order.id)  #
-			#request.session['order_id']=order.id #
+			request.session['order_id']=order.id #
 			return render(request,'created.html')#
 	else:
 		form=OrderCreateForm()

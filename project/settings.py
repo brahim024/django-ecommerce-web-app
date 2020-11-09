@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'cart',
     'ecomapp',
     'order',
+    'payment',
     #'django_celery_results',
     'django.contrib.admin',
     'django.contrib.auth',
