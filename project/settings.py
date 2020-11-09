@@ -9,18 +9,23 @@ https://docs.djangoproject.com/en/3.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
-from configurations import Configuration
+
 import os
 
 # Braintree settings
 #from django.core.exceptions import ImproperlyConfigured
 #Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-class Dev(Configuration):
-    DEBUG = True
-export DJANGO_CONFIGURATION=Dev
-export DJANGO_SETTINGS_MODULE=project.settings
+BRAINTREE_MERCHANT_ID = '3zy8m87hxnghspyy' # Merchant ID
+BRAINTREE_PUBLIC_KEY = 'jccxr9mx36nrvvsw' # Public Key
+BRAINTREE_PRIVATE_KEY = '904bc0b440bd7abc2f66188ba97edaa2' # Private key
+import braintree
+BRAINTREE_CONF = braintree.Configuration(
+ braintree.Environment.Sandbox,
+ BRAINTREE_MERCHANT_ID,
+ BRAINTREE_PUBLIC_KEY,
+ BRAINTREE_PRIVATE_KEY
+)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
