@@ -24,6 +24,7 @@ urlpatterns = [
     path('order/' ,include('order.urls',namespace='orders')),
     path('cart/',include('cart.urls',namespace='cart')),
     path('stor/',include('ecomapp.urls',namespace='ecomapp')),
+    path('payment/',include('payment.urls',namespace='payment')),
 ]
 urlpatterns += staticfiles_urlpatterns()
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
