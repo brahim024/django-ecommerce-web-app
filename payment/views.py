@@ -4,7 +4,7 @@ from django.urls import reverse
 from django.conf import settings
 from order import Order 
 # Create your views here.
-gateway=get_object_or_404(Order,id=order_id)
+gateway=braintree.BraintreeGateway(setting.BRAINTREE_CONF)
 def payment_processing(request):
 	order_id=request.session.get('order_id')
 	order=get_object_or_404(Order,id=order_id)
