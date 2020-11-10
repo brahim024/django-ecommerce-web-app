@@ -22,7 +22,7 @@ def order_add(request):
 			# launch asynchro=nouse task
 			order_created.delay(order.id)  #
 			request.session['order_id']=order.id #
-			return render(request,'created.html')#
+			return redirect(reverse('payment:process'))#
 	else:
 		form=OrderCreateForm()
 	return render(request,'create.html',{'cart':cart,'form':form})
