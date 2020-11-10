@@ -11,18 +11,21 @@ def payment_processing(request):
 	total_cost=order.get_total_cost()
 	if request.method=='POST':
 		# nonce
+		nonce=request.POST.get('payment_method_nonce',None)
 		result=gateway.transaction.sale({
 			'amount':f'{total_cost:.2f}',
-			'payment_mathod_nonce':nonce,
+			'payment_method_nonce':nonce,
 			'options':{
 				'submit_for_settlement':True
 			}
 		})
-	if result.is_success:
-		order.paid=True
-		order.braintree_id=result.transaction.id
-		order.save()
-		return redirect('payment:done')
+		if result.is_success:
+			order.paid=True
+			order.braintree_id=result.transaction.id
+			order.save()
+			return redirect('payment:done')
+		else:
+			return redirect('payment:cancel')
 	else:
 		client_token=gateway.client_token.generate()
 		return render(request,'process.html',{'order':order,'client_token':client_token})
