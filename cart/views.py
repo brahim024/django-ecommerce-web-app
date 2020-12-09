@@ -28,3 +28,4 @@ def cart_detail(request):
                                 'quantity':item['quantity'],
                                 'override':True})
     return render(request,'cart_detail.html',{'cart':cart})
+    
