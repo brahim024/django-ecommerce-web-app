@@ -36,7 +36,7 @@ SECRET_KEY = '895Ee3Bb0F96Bb05Efb56E7D5C46D4E92898D5B65734A385'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['hexa-store.herokuapp.com']
 
 # Application definition
 
