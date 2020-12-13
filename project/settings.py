@@ -16,9 +16,9 @@ import os
 #from django.core.exceptions import ImproperlyConfigured
 #Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-BRAINTREE_MERCHANT_ID = '95jqqzy6wf8pxr68' # Merchant ID
-BRAINTREE_PUBLIC_KEY = 'mgkqg27wwzhp48xv' # Public Key
-BRAINTREE_PRIVATE_KEY = '' # Private key
+BRAINTREE_MERCHANT_ID = 'b3bnnwxfsghrr6vx' # Merchant ID
+BRAINTREE_PUBLIC_KEY = '8bxwd7rxvjdxyjmg' # Public Key
+BRAINTREE_PRIVATE_KEY = '7fda99ff4060aeb3b4a1618d92bb716a' # Private key
 import braintree
 BRAINTREE_CONF = braintree.Configuration(
  braintree.Environment.Sandbox,
