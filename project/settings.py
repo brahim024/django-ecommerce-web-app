@@ -34,9 +34,9 @@ BRAINTREE_CONF = braintree.Configuration(
 SECRET_KEY = '895Ee3Bb0F96Bb05Efb56E7D5C46D4E92898D5B65734A385'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['hexa-store.herokuapp.com']
+ALLOWED_HOSTS = ['https://hexa-store.herokuapp.com/']
 
 # Application definition
 
