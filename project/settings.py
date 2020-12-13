@@ -31,7 +31,7 @@ BRAINTREE_CONF = braintree.Configuration(
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '2-*9pi_2iy)sxd_w!8j==!i@py20zv&xtjhx^w0#$r*6!gqiy8'
+SECRET_KEY = '895Ee3Bb0F96Bb05Efb56E7D5C46D4E92898D5B65734A385'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
