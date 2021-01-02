@@ -29,3 +29,15 @@ class Product(models.Model):
         return self.name
     def get_absolute_url(self):
         return reverse('ecomapp:product_detail',args=[self.id,self.slug])
+class Comment(models.Model):
+    product=models.ForeignKey(Product,on_delete=models.CASCADE,related_name='comments')
+    name=models.CharField(max_length=100)
+    email=models.EmailField()
+    body=models.TextField()
+    created=models.DateTimeField(auto_now_add=True)
+    updated=models.DateTimeField(auto_now=True)
+    active=models.BooleanField(default=True)
+    class Meta:
+        ordering=('created',)
+    def __str__(self):
+        return f'Comment By {self.name}on {self.product}'

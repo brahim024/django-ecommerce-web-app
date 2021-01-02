@@ -25,6 +25,7 @@ urlpatterns = [
     path('cart/',include('cart.urls',namespace='cart')),
     path('stor/',include('ecomapp.urls',namespace='ecomapp')),
     path('payment/',include('payment.urls',namespace='payment')),
+    path('api-auth/', include('rest_framework.urls')),
 ]
 urlpatterns += staticfiles_urlpatterns()
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

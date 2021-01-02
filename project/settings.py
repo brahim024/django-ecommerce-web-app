@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'ecomapp',
     'order',
     'payment',
+    'rest_framework',
     #'django_celery_results',
     'django.contrib.admin',
     'django.contrib.auth',
