@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'order',
     'payment',
     'rest_framework',
+    'bootstrap4',
     #'django_celery_results',
     'django.contrib.admin',
     'django.contrib.auth',

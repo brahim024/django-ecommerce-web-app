@@ -30,7 +30,7 @@ class Product(models.Model):
     def get_absolute_url(self):
         return reverse('ecomapp:product_detail',args=[self.id,self.slug])
 class Comment(models.Model):
-    product=models.ForeignKey(Product,on_delete=models.CASCADE,related_name='comments')
+    product=models.ForeignKey(Product,on_delete=models.CASCADE,related_name='comment')
     name=models.CharField(max_length=100)
     email=models.EmailField()
     body=models.TextField()
