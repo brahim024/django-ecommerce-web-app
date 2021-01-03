@@ -26,24 +26,32 @@
  <p class="row">{{ product.description}}</p>
  <hr>
  <div class="card card-outline-secondary my-4">
-          <div class="card-header">
+          <div class="card-header md-10">
             <h3>Product Reviews</h3>
           </div>
           <div class="card-body">
-          	
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
-            <small class="text-muted">Posted by Anonymous on 3/1/17</small>
+          	{% with comments.count as total_comments %}
+		    <h4>
+		      {{ total_comments }} comment{{ total_comments|pluralize }}
+		    </h4>
+		    {% endwith %}
+          {% for comment in comments %}
+            <p>{{comment.body}}</p>
+            <small class="text-muted">Commented by {{comment.name}} on {{comment.created}}</small>
 
             <hr>
-           <form method="post">
-		      {{ comment_form.as_p }}
-      		  {% csrf_token %}
-		      <p><input type="submit" value="Add comment"></p>
+           {% endfor %}
+           <form  method="post" class="form">
+			    {% csrf_token %}
+			    {% bootstrap_form form %}
+			    {% buttons %}
+			        <button type="submit" class="btn btn-primary">Submit</button>
+			    {% endbuttons %}
 		   </form>
 <hr>
             
           </div>
-        </div>
+</div>
 </div>    
 
 

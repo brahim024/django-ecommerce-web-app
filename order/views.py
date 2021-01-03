@@ -25,4 +25,4 @@ def order_add(request):
 			return redirect(reverse('payment:process'))#
 	else:
 		form=OrderCreateForm()
-	return render(request,'create.html',{'cart':cart,'form':form})
+	return render(request,'create.html',{'cart':cart,'form':form,})

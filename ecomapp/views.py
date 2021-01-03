@@ -19,14 +19,19 @@ def product_list(request,category_slug=None):
 def product_detail(request,id,slug):
     product=get_object_or_404(Product,id=id,slug=slug,available=True)
     cart_product_form=CartAddProductForm()
+    comments=product.comment.filter(active=True)
+    new_comment=None
     if request.method=='POST':
         form=CommentForm(request.POST)
         if form.is_valid():
             new_comment=form.save(commit=False)
             new_comment.product=product
             new_comment.save()
-            return HttpResponse('your comment craeted success!')
-        else:
-            form=CommentForm()
-    context={'form':form,'product':product,'cart_product_form':cart_product_form}
+        
+    else:
+        form=CommentForm()
+    context={'form':form,'product':product,
+             'cart_product_form':cart_product_form,
+             'new_comment':new_comment,
+             'comments':comments}
     return render(request,'details.html',context)
