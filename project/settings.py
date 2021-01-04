@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'payment',
     'rest_framework',
     'bootstrap4',
+    'ckeditor',
     #'django_celery_results',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -148,3 +149,14 @@ MEDIA_URL = '/media/'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 django_heroku.settings(locals())
+# here we added ckeditor
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_CONFIGS = {
+    'awesome_ckeditor': {
+        'toolbar': 'Basic',
+        'toolbar': 'full',
+        'height': 610,
+        'width': 902,
+    },
+}
