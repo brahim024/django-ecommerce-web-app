@@ -31,15 +31,18 @@
           </div>
           <div class="card-body">
           	{% with comments.count as total_comments %}
-		    <h4>
+		    <h5>
 		      {{ total_comments }} comment{{ total_comments|pluralize }}
-		    </h4>
+		    </h5>
 		    {% endwith %}
           {% for comment in comments %}
-            <p>{{comment.body}}</p>
+            <p3>{{comment.body|safe}}</p3>
+            <div class="comment">
             <small class="text-info">Commented by {{comment.name}} on {{comment.created}}</small>
+        	</div>
 
             <hr>
+
            {% endfor %}
            <form  method="post" class="form">
 			    {% csrf_token %}
@@ -49,9 +52,11 @@
 			        <button type="submit" class="btn btn-primary">Submit</button>
 			    {% endbuttons %}
 		   </form>
-<hr>
-            
+           
+        <hr>  
+                  
           </div>
+
 </div>
 </div>    
 

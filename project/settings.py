@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'bootstrap4',
     'ckeditor',
+    'django_filters',
     #'django_celery_results',
     'django.contrib.admin',
     'django.contrib.auth',

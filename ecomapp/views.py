@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from .models import Category, Product
 from cart.forms import CartAddProductForm
 from .forms import CommentForm
-
+from .filters import ProductFilter
 # Create your views here.
 def product_list(request,category_slug=None):
     category=None
@@ -12,10 +12,11 @@ def product_list(request,category_slug=None):
     if category_slug:
         category=get_object_or_404(Category,slug=category_slug)
         product=product.filter(category=category)
+    myfilter=ProductFilter(request.POST,queryset=product)
     return render(request,'list.html',
                           {'category':category,
                             'categories':categories,
-                            'products':product})
+                            'products':product,'myfilter':myfilter})
 def product_detail(request,id,slug):
     product=get_object_or_404(Product,id=id,slug=slug,available=True)
     cart_product_form=CartAddProductForm()
@@ -33,5 +34,5 @@ def product_detail(request,id,slug):
     context={'form':form,'product':product,
              'cart_product_form':cart_product_form,
              'new_comment':new_comment,
-             'comments':comments}
+             'comments':comments,}
     return render(request,'details.html',context)
