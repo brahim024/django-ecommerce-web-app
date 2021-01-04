@@ -9,7 +9,7 @@
  <body>
  
  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href=""{% url "ecomapp:product_list"%}" class="logo"">Hexa</a>
+  <a class="navbar-brand" href="{% url "ecomapp:product_list"%}" class="logo"">Hexa</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -17,7 +17,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{% url "ecomapp:product_list"%}">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Link</a>
@@ -27,10 +27,16 @@
           Dropdown
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <ul>
+      <li {% if not category %}class="selected"{% endif %}>
+        <a href="{% url "ecomapp:product_list" %}">All</a>
+      </li>
+      {% for c in categories %}
+        <li {% if category.slug == c.slug %}class="selected"{% endif %}>
+          <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
+        </li>
+      {% endfor %} 
+    </ul>
         </div>
       </li>
       <li class="nav-item">
