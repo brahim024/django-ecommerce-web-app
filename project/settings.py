@@ -157,7 +157,7 @@ CKEDITOR_CONFIGS = {
     'awesome_ckeditor': {
         'toolbar': 'Basic',
         'toolbar': 'full',
-        'height': 610,
-        'width': 902,
+        'height': 200,
+        'width': 1002,
     },
 }
