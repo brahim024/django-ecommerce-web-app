@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404,redirect
-from django.http import HttpResponse
+from django.http import HttpResponse,HttpResponseRedirect
 from .models import Category, Product
 from cart.forms import CartAddProductForm
 from .forms import CommentForm
@@ -12,7 +12,7 @@ def product_list(request,category_slug=None):
     if category_slug:
         category=get_object_or_404(Category,slug=category_slug)
         product=product.filter(category=category)
-    myfilter=ProductFilter(request.POST,queryset=product)
+    myfilter=ProductFilter(request.GET,queryset=Product.objects.all())
     return render(request,'list.html',
                           {'category':category,
                             'categories':categories,
@@ -28,6 +28,7 @@ def product_detail(request,id,slug):
             new_comment=form.save(commit=False)
             new_comment.product=product
             new_comment.save()
+            return HttpResponseRedirect('stor/product_list_by_category')
         
     else:
         form=CommentForm()
