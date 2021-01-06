@@ -44,16 +44,17 @@
 		    {% endwith %}
           {% for comment in comments %}
             <p>{{comment.body|safe}}</p>
-            
-        	</div>
-        	<div class="card-body">
             <small class="text-info">Commented by {{comment.name}} on {{comment.created}}</small>
+            <hr>
+            {% endfor %}
+
         	</div>
         	
+        	
 
-           {% endfor %} 
+           
                   
-          </div>
+ </div>
 <form  method="post" class="form">
 			    {% csrf_token %}
 			    {{form.media}}
