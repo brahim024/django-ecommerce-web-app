@@ -28,17 +28,20 @@
 	   <p5 class="row">{{ product.description|safe}}</p5>
 	 </form>
 	</div>
+	<iframe width="420" height="315"
+src="https://www.youtube.com/embed/tgbNymZ7vqY">
+</iframe>
 </div>
  
  <hr>
  <div class="card card-outline-secondary my-4">
  	<div class="card-header md-4">
-		<form  method="post" class="form">
+		<form name="comment-form" method="post" class="form" value="Submit">
 			    {% csrf_token %}
 			    {{form.media}}
 			    {% bootstrap_form form %}
 			    {% buttons %}
-			        <button type="submit" class="btn btn-primary">Submit</button>
+			        <button type="submit" class="btn btn-primary" onclick="submiteForm()">Submit</button>
 			    {% endbuttons %}
 		  </form>
 	</div>
@@ -52,17 +55,17 @@
 		    </p>
 		    {% endwith %}
           {% for comment in comments %}
-
             <p>{{comment.body|safe|truncatewords:"50"|linebreaks}}</p>
             <small class="text-info">Commented by {{comment.name}} on {{comment.created}}</small>
             <hr>
+            
             {% endfor %}
 
         	</div>
         	
         	
 
-           
+     <script src="{% static 'js/comment.js'%}"></script>
                   
  </div>
 

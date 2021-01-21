@@ -28,7 +28,7 @@ def product_detail(request,id,slug):
             new_comment=form.save(commit=False)
             new_comment.product=product
             new_comment.save()
-            return HttpResponseRedirect('stor/product_list_by_category')
+            #return HttpResponseRedirect('stor/product_list_by_category')
         
     else:
         form=CommentForm()
