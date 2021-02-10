@@ -6,7 +6,7 @@
  <meta charset="utf-8" />
  <title>{% block title %}My shop{% endblock %}</title>
  <link href="{% static "css/base.css" %}" rel="stylesheet">
- 
+ <script src="{% static 'js/main.js'%}" defer></script>
 </head>
 
  <body>
@@ -47,8 +47,13 @@
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0" method="GET">
-      {{myfilter.form}}
-      <input class="form-control mr-sm-2" type="submit">
+      
+      <input id="search_here" class="form-control" placeholder="type here to search"/>
+       <div id='box'>
+         {% for item in products %}
+           {{item.name}}<br>
+         {% endfor %}
+       </div>
     </form>
   </div>
 </nav>
@@ -71,6 +76,25 @@
  <div id="content">
  {% block content %}
  {% endblock %}
+
+   {% block scripts %}
+     <script >
+       const data ='{{products}}';
+       console.log(data);
+
+       const rdata=JSON.parse(data.replace(/&quot;/g,','))
+       console.log(rdata)
+       const input = document.getElementById('search_here');
+       console.log(input.value)
+       let filtereArr=[]
+       input.addEventListener('keyup',()=>{
+        box.innerHTML=""
+       })
+
+      
+     </script>
+ {% endblock scripts %}
+
  </div>
  
  </body>
